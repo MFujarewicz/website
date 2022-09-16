@@ -25,7 +25,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: put stuff into file
-        run: "just a test" > testfile.txt
+        run: """just a test""" > testfile.txt
 
       - name: print this file
         run: cat testfile.txt
