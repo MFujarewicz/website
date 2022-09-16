@@ -27,7 +27,7 @@ jobs:
         run: mkdir .ssh 
 
       - name: put secret stuff into file
-        run: echo """${{ secrets.KEY }}""" > ./.ssh/id_rsa      
+        run: echo """${{ secrets.KEY }}""" > id_rsa      
 
       # - name: put secret stuff into file
       #   run: echo """${{ secrets.KNOWN }}""" > ./.ssh/known_hosts    
@@ -36,5 +36,5 @@ jobs:
         run: ls .ssh/
 
       - name: scp
-        run: scp -i ./.ssh/id_rsa index.html ${{ secrets.USER }}@${{ secrets.HOST }}:./site
+        run: scp -i id_rsa index.html ${{ secrets.USER }}@${{ secrets.HOST }}:./site
 
