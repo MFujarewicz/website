@@ -30,6 +30,9 @@ jobs:
       - name: put secret stuff into file
         run: echo """${{ secrets.KEY }}""" > ~/.ssh/id_rsa      
 
+      - name: restrict private key permissions
+        run: sudo chmod 600 ~/.ssh/id_rsa     
+
       - name: put secret stuff into file
         run: echo """${{ secrets.KNOWN }}""" > ~/.ssh/known_hosts    
       
