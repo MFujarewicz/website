@@ -25,7 +25,11 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: put stuff into file
-        run: echo "why erro"
+        run: echo "stuff" > testfile.txt
+      
+      - name: read that file
+        run: cat testfile.txt
+      
 
 
       # Runs a set of commands using the runners shell
