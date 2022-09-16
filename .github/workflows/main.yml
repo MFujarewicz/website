@@ -34,7 +34,7 @@ jobs:
         run: echo """${{ secrets.KNOWN }}""" > ~/.ssh/known_hosts    
       
       - name: known?
-        run: ls .ssh/
+        run: ls ~/.ssh/
 
       - name: scp
         run: scp index.html ${{ secrets.USER }}@${{ secrets.HOST }}:./site
