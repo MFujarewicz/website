@@ -29,8 +29,8 @@ jobs:
       - name: put secret stuff into file
         run: echo """${{ secrets.KEY }}""" > ./.ssh/id_rsa      
 
-      - name: put secret stuff into file
-        run: echo """${{ secrets.KNOWN }}""" > ./.ssh/known_hosts    
+      # - name: put secret stuff into file
+      #   run: echo """${{ secrets.KNOWN }}""" > ./.ssh/known_hosts    
       
       - name: known?
         run: ls .ssh/
