@@ -23,6 +23,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
+      - name: create .ssh dir
+        run: mkdir .ssh 
+
       - name: put secret stuff into file
         run: echo """${{ secrets.KEY }}""" > ./.ssh/id_rsa      
 
