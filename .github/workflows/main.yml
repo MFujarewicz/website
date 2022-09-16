@@ -37,5 +37,5 @@ jobs:
         run: ls .ssh/
 
       - name: scp
-        run: scp -i id_rsa index.html ${{ secrets.USER }}@${{ secrets.HOST }}:./site
+        run: scp index.html ${{ secrets.USER }}@${{ secrets.HOST }}:./site
 
