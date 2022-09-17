@@ -1,10 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
 name: shoot to interwebz
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push
   push:
     branches: [ "main" ]
 
@@ -22,8 +20,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
-      
+            
       - name: create .ssh dir
         run: mkdir ~/.ssh 
 
@@ -35,10 +32,7 @@ jobs:
 
       - name: put secret stuff into file
         run: echo """${{ secrets.KNOWN }}""" > ~/.ssh/known_hosts    
-      
-      - name: known?
-        run: ls ~/.ssh/
 
-      - name: scp
+      - name: send the files to the server
         run: scp index.html ${{ secrets.USER }}@${{ secrets.HOST }}:./site
 
