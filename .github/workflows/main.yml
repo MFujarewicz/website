@@ -20,19 +20,24 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-            
+
       - name: create .ssh dir
-        run: mkdir ~/.ssh 
+        run: mkdir ~/.ssh
 
       - name: put secret stuff into file
-        run: echo """${{ secrets.KEY }}""" > ~/.ssh/id_rsa      
+        run: echo """${{ secrets.KEY }}""" > ~/.ssh/id_rsa
 
       - name: restrict private key permissions
-        run: sudo chmod 600 ~/.ssh/id_rsa     
+        run: sudo chmod 600 ~/.ssh/id_rsa
 
       - name: put secret stuff into file
-        run: echo """${{ secrets.KNOWN }}""" > ~/.ssh/known_hosts    
+        run: echo """${{ secrets.KNOWN }}""" > ~/.ssh/known_hosts
 
-      - name: send the files to the server
-        run: scp index.html cv.html photos.html amazingBeautyGiver.css ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html
+      - name: send files to the server
+        run: scp index.html cv.html photos.html songs.html amazingBeautyGiver.css ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html
+
+      - name: send songs to the server
+        run: scp *.html amazingBeautyGiver.css ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html/songs
+
+
 
