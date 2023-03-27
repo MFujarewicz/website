@@ -34,7 +34,7 @@ jobs:
         run: echo """${{ secrets.KNOWN }}""" > ~/.ssh/known_hosts
 
       - name: send files to the server
-        run: scp index.html cv.html photos.html songs.html amazingBeautyGiver.css ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html
+        run: scp *.html amazingBeautyGiver.css ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html
 
       - name: send songs to the server
         run: scp songs/*.html ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/html/songs
